@@ -1,8 +1,8 @@
 export default function Home() {
   return (
-    <div className="w-full h-full p-6 flex flex-col justify-between gap-10">
+    <div className="w-full h-full p-[1.98rem] flex flex-col justify-between gap-10">
       <p className="text-2xl text-white">Project PPX</p>
-      <div className="h-96 w-full flex flex-col justify-center text-center items-center gap-10">
+      <div className="h-96 w-full flex flex-col justify-center text-center items-center gap-9">
         <p className="text-2xl text-white">Acessar</p>
         <div className="text-start">
           <p className="text-xl text-white">Empresa</p>
@@ -21,7 +21,7 @@ export default function Home() {
         </button>
       </div>
       <div className="flex flex-row justify-center">
-        <a href="">Enfrentando problemas? Envie um email</a>
+        <a href="" className="text-white">Enfrentando problemas? Envie um email</a>
       </div>
     </div>
   );
