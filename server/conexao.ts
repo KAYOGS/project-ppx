@@ -1,8 +1,7 @@
-// Exemplo de configuração em TypeScript
-import { initializeApp } from 'firebase/app';
-import { getFirestore } from 'firebase/firestore'; // Se você estiver usando Firestore
+/*import { initializeApp } from 'firebase/app';
+import { getFirestore } from 'firebase/firestore';
 // ou 
-import { getDatabase } from 'firebase/database'; // Se você estiver usando Realtime Database
+import { getDatabase } from 'firebase/database';
 
 const firebaseConfig = {
   apiKey: "AIzaSyCRB9HnUir7lpDT0Yd0id-z0n8UW4Y2k6M",
@@ -18,4 +17,4 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
 // Para usar Firestore:
-export const db = getFirestore(app);
+export const db = getFirestore(app);*/
