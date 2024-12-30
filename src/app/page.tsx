@@ -17,11 +17,11 @@ export default function Home() {
           </div>
         </div>
         <button className="bg-green-600 hover:bg-green-700 border-white border-[1px] rounded-xl w-40 h-10">
-          <p className="text-white">Recuperar</p>
+          <p className="text-white">Acessar</p>
         </button>
       </div>
       <div className="flex flex-row justify-center">
-        <a href="" className="text-white">Enfrentando problemas? Envie um email</a>
+        <a href="https://mail.google.com/mail/u/0/?pli=1#inbox?compose=new" className="text-white">Enfrentando problemas? Envie um email</a>
       </div>
     </div>
   );

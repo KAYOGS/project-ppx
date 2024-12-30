@@ -1,6 +1,6 @@
 export default function criarConta() {
   return (
-    <div className="w-full h-full p-6 flex flex-col justify-between gap-8">
+    <div className="w-full h-full p-[1.98rem] flex flex-col justify-between gap-10">
       <a href="./" className="text-2xl text-white">Project PPX</a>
       <div className="h-96 w-full flex flex-col justify-center text-center items-center gap-3">
         <p className="text-2xl text-white">Criar Conta</p>
