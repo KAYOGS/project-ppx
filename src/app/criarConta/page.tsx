@@ -3,12 +3,12 @@ import { useState } from 'react';
 import { db } from '../conexaoBD'; 
 import {collection, addDoc, query, where, getDocs} from 'firebase/firestore';
 
-export default function criarConta() {
-  const [empresa, setEmpresa] = useState('empresa');
-  const [cnpj, setCnpj] = useState('cnpj');
-  const [cep, setCep] = useState('cep');
-  const [email, setEmail] = useState('email');
-  const [senha, setSenha] = useState('senha');
+export default function CriarConta() {
+  const [empresa, setEmpresa] = useState('');
+  const [cnpj, setCnpj] = useState('');
+  const [cep, setCep] = useState('');
+  const [email, setEmail] = useState('');
+  const [senha, setSenha] = useState('');
 
   const addEmpresa = async () => {
     try {
