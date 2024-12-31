@@ -16,7 +16,7 @@ export default function Home() {
             <a className="text-white" href={"/recuperarAcesso"}>Recuperar Acesso</a>
           </div>
         </div>
-        <button className="bg-green-600 hover:bg-green-700 border-white border-[1px] rounded-xl w-40 h-10">
+        <button /*onClick={}*/ className="bg-green-600 hover:bg-green-700 border-white border-[1px] rounded-xl w-40 h-10">
           <p className="text-white">Acessar</p>
         </button>
       </div>
