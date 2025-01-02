@@ -1,7 +1,8 @@
-'use client'; 
-import { useState } from 'react'; 
-import { db } from '../firebaseConfig'; 
-import {collection, addDoc, query, where, getDocs} from 'firebase/firestore';
+'use client';
+
+import { useState } from 'react';
+import { db } from '../firebaseConfig';
+import { collection, addDoc, query, where, getDocs } from 'firebase/firestore';
 
 export default function CriarConta() {
   const [empresa, setEmpresa] = useState('');
@@ -12,10 +13,10 @@ export default function CriarConta() {
 
   const addEmpresa = async () => {
     try {
-      const q = query(collection(db, 'Empresas'), where('cnpj', '==', cnpj)); 
+      const q = query(collection(db, 'Empresas'), where('cnpj', '==', cnpj));
       const querySnapshot = await getDocs(q);
 
-      if(querySnapshot.empty){
+      if (querySnapshot.empty) {
         const docRef = await addDoc(collection(db, 'Empresas'), {
           empresa,
           cnpj,
@@ -23,15 +24,16 @@ export default function CriarConta() {
           email,
           senha
         });
+        console.log("Documento adicionado com ID: ", docRef.id); // Uso de docRef para evitar o erro
         alert("Cadastro realizado");
       } else {
-        alert("Cnpj já está sendo utilizado");
+        alert("CNPJ já está sendo utilizado");
       }
     } catch (error) {
       console.log(error);
       alert("Erro ao cadastrar empresa");
     }
-  }
+  };
 
   return (
     <div className="w-full h-full p-[1.98rem] flex flex-col justify-between gap-10">
