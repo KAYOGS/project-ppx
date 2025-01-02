@@ -1,6 +1,6 @@
 'use client'; 
 import { useState } from 'react'; 
-import { db } from '../conexaoBD'; 
+import { db } from '../firebaseConfig'; 
 import {collection, addDoc, query, where, getDocs} from 'firebase/firestore';
 
 export default function CriarConta() {
