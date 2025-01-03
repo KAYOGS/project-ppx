@@ -37,27 +37,27 @@ export default function CriarConta() {
 
   return (
     <div className="w-full h-full p-[1.98rem] flex flex-col justify-between gap-10">
-      <a href="./" className="text-2xl text-white">Project PPX</a>
+      <a href="./" className="text-2xl text-black">Project PPX</a>
       <div className="h-96 w-full flex flex-col justify-center text-center items-center gap-3">
-        <p className="text-2xl text-white">Criar Conta</p>
+        <p className="text-2xl text-black">Criar Conta</p>
         <div className="text-start">
-          <p className="text-xl text-white">Empresa</p>
+          <p className="text-xl text-black">Empresa</p>
           <input onChange={(e) => setEmpresa(e.target.value)} id="empresa" type="text" className="border-black border-[1px] rounded-xl bg-white p-1 w-96 text-black"/>
         </div>
         <div className="text-start">
-          <p className="text-xl text-white">CNPJ</p>
+          <p className="text-xl text-black">CNPJ</p>
           <input onChange={(e) => setCnpj(e.target.value)} id="cnpj" type="text" className="border-black border-[1px] rounded-xl bg-white p-1 w-96 text-black"/>
         </div>
         <div className="text-start">
-          <p className="text-xl text-white">Cep</p>
+          <p className="text-xl text-black">Cep</p>
           <input onChange={(e) => setCep(e.target.value)} id="cep" type="text" className="border-black border-[1px] rounded-xl bg-white p-1 w-96 text-black"/>
         </div>
         <div className="text-start">
-          <p className="text-xl text-white">Email</p>
+          <p className="text-xl text-black">Email</p>
           <input onChange={(e) => setEmail(e.target.value)} id="email" type="text" className="border-black border-[1px] rounded-xl bg-white p-1 w-96 text-black"/>
         </div>
         <div className="text-start">
-          <p className="text-xl text-white">Senha</p>
+          <p className="text-xl text-black">Senha</p>
           <input onChange={(e) => setSenha(e.target.value)} id="senha" type="password" className="border-black border-[1px] rounded-xl bg-white p-1 w-96 text-black"/>
         </div>
       </div>
