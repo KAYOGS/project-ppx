@@ -21,7 +21,7 @@ export default function Home() {
         </button>
       </div>
       <div className="flex flex-row justify-center">
-        <a href="https://mail.google.com/mail/u/0/?pli=1#inbox?compose=new" className="text-white">Enfrentando problemas? Envie um email</a>
+        <a href="" className="text-white">Enfrentando problemas? Envie um email</a>
       </div>
     </div>
   );
