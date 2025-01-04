@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { db } from '../firebaseConfig';
 import { collection, addDoc, query, where, getDocs } from 'firebase/firestore';
+import { formatCPF, formatCNPJ, formatCEP, formatPhone} from '../mascaraInput';
 
 export default function CriarConta() {
   const [empresa, setEmpresa] = useState('');
@@ -25,14 +26,28 @@ export default function CriarConta() {
           senha
         });
         console.log("Documento adicionado com ID: ", docRef.id); // Uso de docRef para evitar o erro
-        alert("Cadastro realizado");
+        alert("Cadastrado com sucesso");
+        window.location.href = '/';
       } else {
         alert("CNPJ já está sendo utilizado");
+        window.location.href = '/';
       }
     } catch (error) {
       console.log(error);
       alert("Erro ao cadastrar empresa");
+      window.location.href = '/';
     }
+  };
+
+  const handleCnpjChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const newCnpj = formatCNPJ(event.target.value);
+    setCnpj(newCnpj);
+  };
+
+  const handleCepChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const onlyNumbers = event.target.value.replace(/\D/g, ''); // Remove non-numeric characters
+    const formattedCep = onlyNumbers.slice(0, 9).replace(/(\d{5})(\d{3})/, '$1-$2'); // Limit to 9 digits and format
+    setCep(formattedCep);
   };
 
   return (
@@ -42,23 +57,23 @@ export default function CriarConta() {
         <p className="text-2xl text-black">Criar Conta</p>
         <div className="text-start">
           <p className="text-xl text-black">Empresa</p>
-          <input onChange={(e) => setEmpresa(e.target.value)} id="empresa" type="text" className="border-black border-[1px] rounded-xl bg-white p-1 w-96 text-black"/>
+          <input onChange={(e) => setEmpresa(e.target.value)} id="empresa" type="text" className="border-black border-[1px] rounded-xl bg-white p-1 w-96 text-black" placeholder='Insira o nome da empresa'/>
         </div>
         <div className="text-start">
           <p className="text-xl text-black">CNPJ</p>
-          <input onChange={(e) => setCnpj(e.target.value)} id="cnpj" type="text" className="border-black border-[1px] rounded-xl bg-white p-1 w-96 text-black"/>
+          <input value={cnpj} onChange={handleCnpjChange} id="cnpj" type="text" className="border-black border-[1px] rounded-xl bg-white p-1 w-96 text-black" maxLength={14} minLength={14} placeholder='Insira o cnpj da empresa'/>
         </div>
         <div className="text-start">
           <p className="text-xl text-black">Cep</p>
-          <input onChange={(e) => setCep(e.target.value)} id="cep" type="text" className="border-black border-[1px] rounded-xl bg-white p-1 w-96 text-black"/>
+          <input value={cep} onChange={handleCepChange} id="cep" type="text" className="border-black border-[1px] rounded-xl bg-white p-1 w-96 text-black" maxLength={8} minLength={8} placeholder='Insira o cep da empresa'/>
         </div>
         <div className="text-start">
           <p className="text-xl text-black">Email</p>
-          <input onChange={(e) => setEmail(e.target.value)} id="email" type="text" className="border-black border-[1px] rounded-xl bg-white p-1 w-96 text-black"/>
+          <input onChange={(e) => setEmail(e.target.value)} id="email" type="text" className="border-black border-[1px] rounded-xl bg-white p-1 w-96 text-black" placeholder='Insira o email da empresa'/>
         </div>
         <div className="text-start">
           <p className="text-xl text-black">Senha</p>
-          <input onChange={(e) => setSenha(e.target.value)} id="senha" type="password" className="border-black border-[1px] rounded-xl bg-white p-1 w-96 text-black"/>
+          <input onChange={(e) => setSenha(e.target.value)} id="senha" type="password" className="border-black border-[1px] rounded-xl bg-white p-1 w-96 text-black" placeholder='Insira a senha'/>
         </div>
       </div>
       <div className="flex flex-row justify-center">
