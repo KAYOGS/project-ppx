@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { db } from '../firebaseConfig';
 import { collection, addDoc, query, where, getDocs } from 'firebase/firestore';
-import { formatCPF, formatCNPJ, formatCEP, formatPhone} from '../mascaraInput';
+import { formatCNPJ, formatCEP } from '../mascaraInput';
 
 export default function CriarConta() {
   const [empresa, setEmpresa] = useState('');
