@@ -63,7 +63,7 @@ export default function RecuperarAcesso() {
 
   return (
     <div className="w-full h-full p-[1.98rem] flex flex-col justify-between gap-10">
-      <a href="./" className="text-2xl text-black">Wise</a>
+      <a href="./" className="text-2xl text-black">Wiser</a>
       <div className="h-80 w-full flex flex-col justify-center text-center items-center gap-5">
         <p className="text-2xl text-black">Recuperar Acesso</p>
         <div className="text-start">

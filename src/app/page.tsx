@@ -1,7 +1,7 @@
 export default function Home() {
   return (
     <div className="w-full h-full p-[1.98rem] flex flex-col justify-between gap-10">
-      <p className="text-2xl text-black">Wise</p>
+      <p className="text-2xl text-black">Wiser</p>
       <div className="h-96 w-full flex flex-col justify-center text-center items-center gap-9">
         <p className="text-2xl text-black">Acessar</p>
         <div className="text-start">
