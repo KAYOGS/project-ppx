@@ -1,6 +1,6 @@
 'use client';
 
-import { SetStateAction, useState } from 'react';
+import { useState } from 'react';
 import { db } from '../firebaseConfig';
 import { doc, updateDoc, query, where, getDocs, collection } from 'firebase/firestore';
 import { formatCNPJ } from '../mascaraInput';
