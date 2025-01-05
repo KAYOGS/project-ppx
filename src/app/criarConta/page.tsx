@@ -45,14 +45,13 @@ export default function CriarConta() {
   };
 
   const handleCepChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const onlyNumbers = event.target.value.replace(/\D/g, ''); // Remove non-numeric characters
-    const formattedCep = onlyNumbers.slice(0, 9).replace(/(\d{5})(\d{3})/, '$1-$2'); // Limit to 9 digits and format
-    setCep(formattedCep);
+    const newCep = formatCEP(event.target.value);
+    setCep(newCep);
   };
 
   return (
     <div className="w-full h-full p-[1.98rem] flex flex-col justify-between gap-10">
-      <a href="./" className="text-2xl text-black">Project PPX</a>
+      <a href="./" className="text-2xl text-black">Wise</a>
       <div className="h-96 w-full flex flex-col justify-center text-center items-center gap-3">
         <p className="text-2xl text-black">Criar Conta</p>
         <div className="text-start">
