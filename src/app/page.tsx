@@ -7,7 +7,6 @@ import { collection, getDocs, query, where } from 'firebase/firestore';
 export default function Home() {
   const [empresa, setEmpresa] = useState('');
   const [senha, setSenha] = useState('');
-  const [error, setError] = useState('');
 
   const handleLogin = async () => {
     console.log('Tentando logar com:', empresa, senha); // Verificar se a função está sendo chamada
@@ -36,17 +35,14 @@ export default function Home() {
             window.location.href = '/sessaoInicial'; // Redirecionar
           } else {
             alert('Senha incorreta.');
-            setError('Senha incorreta.');
           }
         });
       } else {
         alert('Empresa não encontrada.');
-        setError('Empresa não encontrada.');
       }
     } catch (error) {
       console.error('Erro ao fazer login:', error);
       alert('Erro ao fazer login');
-      setError('Ocorreu um erro ao tentar fazer login.');
     }
   };
 
