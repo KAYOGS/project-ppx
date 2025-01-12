@@ -1,4 +1,55 @@
+'use client'
+
+import { db } from './firebaseConfig';
+import { useState } from 'react';
+import { collection, getDocs, query, where } from 'firebase/firestore';
+
 export default function Home() {
+  const [empresa, setEmpresa] = useState('');
+  const [senha, setSenha] = useState('');
+  const [error, setError] = useState('');
+
+  const handleLogin = async () => {
+    console.log('Tentando logar com:', empresa, senha); // Verificar se a função está sendo chamada
+
+    if (!empresa || !senha) {
+      alert("Por favor, preencha todos os campos.");
+      return;
+    }
+
+    try {
+      // Criando a consulta
+      const empresaQuery = query(collection(db, 'Empresas'), where('empresa', '==', empresa));
+      console.log('Buscando empresa:', empresaQuery);
+
+      // Executando a consulta e obtendo os documentos correspondentes
+      const querySnapshot = await getDocs(empresaQuery);
+
+      if (!querySnapshot.empty) {
+        querySnapshot.forEach((doc) => {
+          const empresaData = doc.data();
+          console.log('Dados da empresa:', empresaData);
+
+          // Verifica se a senha está correta
+          if (empresaData.senha === senha) {
+            alert('Senha correta, redirecionando...');
+            window.location.href = '/sessaoInicial'; // Redirecionar
+          } else {
+            alert('Senha incorreta.');
+            setError('Senha incorreta.');
+          }
+        });
+      } else {
+        alert('Empresa não encontrada.');
+        setError('Empresa não encontrada.');
+      }
+    } catch (error) {
+      console.error('Erro ao fazer login:', error);
+      alert('Erro ao fazer login');
+      setError('Ocorreu um erro ao tentar fazer login.');
+    }
+  };
+
   return (
     <div className="w-full h-full p-[1.98rem] flex flex-col justify-between gap-10">
       <p className="text-2xl text-black">Wiser</p>
@@ -6,17 +57,29 @@ export default function Home() {
         <p className="text-2xl text-black">Acessar</p>
         <div className="text-start">
           <p className="text-xl text-black">Empresa</p>
-          <input type="text" className="border-black border-[1px] rounded-xl bg-white p-1 w-96 text-black" placeholder="Insira o nome da empresa"/>
+          <input
+            value={empresa}
+            onChange={(e) => setEmpresa(e.target.value)}
+            type="text"
+            className="border-black border-[1px] rounded-xl bg-white p-1 w-96 text-black"
+            placeholder="Insira o nome da empresa"
+          />
         </div>
         <div className="text-start">
           <p className="text-xl text-black">Senha</p>
-          <input type="password" className="border-black border-[1px] rounded-xl bg-white p-1 w-96 text-black" placeholder="Insira a senha"/>
+          <input
+            value={senha}
+            onChange={(e) => setSenha(e.target.value)}
+            type="password"
+            className="border-black border-[1px] rounded-xl bg-white p-1 w-96 text-black"
+            placeholder="Insira a senha"
+          />
           <div className="w-full flex flex-row justify-center pt-1 gap-36">
             <a className="text-black" href={"/criarConta"}>Criar Conta</a>
             <a className="text-black" href={"/recuperarAcesso"}>Recuperar Acesso</a>
           </div>
         </div>
-        <button /*onClick={}*/ className="bg-green-600 hover:bg-green-700 border-white border-[1px] rounded-xl w-40 h-10">
+        <button onClick={handleLogin} className="bg-green-600 hover:bg-green-700 border-white border-[1px] rounded-xl w-40 h-10">
           <p className="text-white">Acessar</p>
         </button>
       </div>

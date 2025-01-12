@@ -56,23 +56,59 @@ export default function CriarConta() {
         <p className="text-2xl text-black">Criar Conta</p>
         <div className="text-start">
           <p className="text-xl text-black">Empresa</p>
-          <input onChange={(e) => setEmpresa(e.target.value)} id="empresa" type="text" className="border-black border-[1px] rounded-xl bg-white p-1 w-96 text-black" placeholder='Insira o nome da empresa'/>
+          <input 
+            onChange={(e) => setEmpresa(e.target.value)} 
+            id="empresa" 
+            type="text" 
+            className="border-black border-[1px] rounded-xl bg-white p-1 w-96 text-black" 
+            placeholder='Insira o nome da empresa'
+          />
         </div>
         <div className="text-start">
           <p className="text-xl text-black">CNPJ</p>
-          <input value={cnpj} onChange={handleCnpjChange} id="cnpj" type="text" className="border-black border-[1px] rounded-xl bg-white p-1 w-96 text-black" maxLength={14} minLength={14} placeholder='Insira o cnpj da empresa'/>
+          <input 
+            value={cnpj} 
+            onChange={handleCnpjChange} 
+            id="cnpj" 
+            type="text" 
+            className="border-black border-[1px] rounded-xl bg-white p-1 w-96 text-black" 
+            maxLength={14} 
+            minLength={14} 
+            placeholder='Insira o cnpj da empresa'
+          />
         </div>
         <div className="text-start">
           <p className="text-xl text-black">Cep</p>
-          <input value={cep} onChange={handleCepChange} id="cep" type="text" className="border-black border-[1px] rounded-xl bg-white p-1 w-96 text-black" maxLength={8} minLength={8} placeholder='Insira o cep da empresa'/>
+          <input 
+            value={cep} 
+            onChange={handleCepChange} 
+            id="cep" 
+            type="text" 
+            className="border-black border-[1px] rounded-xl bg-white p-1 w-96 text-black" 
+            maxLength={8} 
+            minLength={8} 
+            placeholder='Insira o cep da empresa'
+          />
         </div>
         <div className="text-start">
           <p className="text-xl text-black">Email</p>
-          <input onChange={(e) => setEmail(e.target.value)} id="email" type="text" className="border-black border-[1px] rounded-xl bg-white p-1 w-96 text-black" placeholder='Insira o email da empresa'/>
+          <input 
+            onChange={(e) => setEmail(e.target.value)} 
+            id="email" 
+            type="text" 
+            className="border-black border-[1px] rounded-xl bg-white p-1 w-96 text-black" 
+            placeholder='Insira o email da empresa'
+          />
         </div>
         <div className="text-start">
           <p className="text-xl text-black">Senha</p>
-          <input onChange={(e) => setSenha(e.target.value)} id="senha" type="password" className="border-black border-[1px] rounded-xl bg-white p-1 w-96 text-black" placeholder='Insira a senha'/>
+          <input 
+            onChange={(e) => setSenha(e.target.value)} 
+            id="senha" 
+            type="password" 
+            className="border-black border-[1px] rounded-xl bg-white p-1 w-96 text-black" 
+            placeholder='Insira a senha'
+          />
         </div>
       </div>
       <div className="flex flex-row justify-center">
