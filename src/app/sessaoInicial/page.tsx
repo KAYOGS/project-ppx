@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation'; // Import ajustado para a nova versão do Next.js
 import Menu from '../menu/menu';
 
 export default function SessaoInicial() {
@@ -12,12 +12,15 @@ export default function SessaoInicial() {
     // Apenas habilita o código quando estiver no lado do cliente
     setIsClient(true);
 
-    // Verifica se o usuário está logado
-    const isLoggedIn = localStorage.getItem('isLoggedIn');
+    // Verifica se o código está rodando no cliente
+    if (typeof window !== 'undefined') {
+      // Verifica se o usuário está logado
+      const isLoggedIn = localStorage.getItem('isLoggedIn');
 
-    // Se não estiver logado, redireciona para a página de login
-    if (isLoggedIn !== 'true') {
-      router.push('/');
+      // Se não estiver logado, redireciona para a página de login
+      if (isLoggedIn !== 'true') {
+        router.push('/');
+      }
     }
   }, [router]);
 
