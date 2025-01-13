@@ -1,6 +1,5 @@
 'use client';
 
-import Image from 'next/image';
 import Menu from '../menu/menu';
 
 export default function sessaoInicial() {
