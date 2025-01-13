@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import { db } from './firebaseConfig';
 import { useState } from 'react';
@@ -9,7 +9,7 @@ export default function Home() {
   const [senha, setSenha] = useState('');
 
   const handleLogin = async () => {
-    console.log('Tentando logar com:', empresa, senha); // Verificar se a função está sendo chamada
+    console.log('Tentando logar com:', empresa, senha);
 
     if (!empresa || !senha) {
       alert("Por favor, preencha todos os campos.");
@@ -17,22 +17,20 @@ export default function Home() {
     }
 
     try {
-      // Criando a consulta
       const empresaQuery = query(collection(db, 'Empresas'), where('empresa', '==', empresa));
-      console.log('Buscando empresa:', empresaQuery);
-
-      // Executando a consulta e obtendo os documentos correspondentes
       const querySnapshot = await getDocs(empresaQuery);
 
       if (!querySnapshot.empty) {
         querySnapshot.forEach((doc) => {
           const empresaData = doc.data();
-          console.log('Dados da empresa:', empresaData);
-
-          // Verifica se a senha está correta
           if (empresaData.senha === senha) {
             alert('Senha correta, redirecionando...');
-            window.location.href = '/sessaoInicial'; // Redirecionar
+            
+            // Salvando sessão no localStorage
+            localStorage.setItem('isLoggedIn', 'true');
+            
+            // Redireciona para a sessão inicial
+            window.location.href = '/sessaoInicial';
           } else {
             alert('Senha incorreta.');
           }
