@@ -1,13 +1,17 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import Menu from '../menu/menu';
 
 export default function SessaoInicial() {
   const router = useRouter();
+  const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
+    // Apenas habilita o código quando estiver no lado do cliente
+    setIsClient(true);
+
     // Verifica se o usuário está logado
     const isLoggedIn = localStorage.getItem('isLoggedIn');
 
@@ -16,6 +20,11 @@ export default function SessaoInicial() {
       router.push('/');
     }
   }, [router]);
+
+  if (!isClient) {
+    // Retorna um estado de loading ou null enquanto espera o lado do cliente estar disponível
+    return null;
+  }
 
   return (
     <div className="flex flex-col justify-center w-full h-full">
