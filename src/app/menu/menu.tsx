@@ -8,7 +8,8 @@ export default function menu(){
                     <a href="./" className="text-white">Sair</a>
                 </div>
                 <div className="flex flex-row justify-center p-4 gap-6 w-full">
-                    <a href="" className="text-white">RH</a>
+                    <a href="../sessaoInicial" className="text-white">Inicio</a>
+                    <a href="../rh" className="text-white">RH</a>
                     <a href="" className="text-white">Financeira</a>
                     <a href="" className="text-white">Vendas</a>
                     <a href="" className="text-white">TI</a>

@@ -79,10 +79,10 @@ export default function Home() {
       </div>
       <div className="flex flex-col justify-center text-center gap-4">
         <div>
-          <a href="" className="text-white">Enfrentando problemas? Envie um email</a>
+          <a href="" className="text-black">Enfrentando problemas? Envie um email</a>
         </div>
         <div>
-          <p className="text-white">O login só será permitido se o nome da empresa for digitado exatamente como cadastrado, incluindo acentos e outros caracteres especiais.</p>
+          <p className="text-black">O login só será permitido se o nome da empresa for digitado exatamente como cadastrado, incluindo acentos e outros caracteres especiais.</p>
         </div>
       </div>
     </div>
