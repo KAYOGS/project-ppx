@@ -30,14 +30,24 @@ export default function SessaoInicial() {
   }
 
   return (
-    <div className="flex flex-col justify-center w-full h-full">
+    <div className="flex flex-col justify-center w-screen h-screen">
       <Menu />
-      <div className="w-full p-4">
-        <p>Wiser Up, trabalhando em soluções integradas para uma gestão empresarial mais eficiente, conectando todas as áreas do seu negócio em um só lugar.</p>
-      </div>
-      <div className="w-full p-4">
-        <h2>Suporte</h2>
-        <p>E-mail: wiserup@gmail.com</p>
+      <div className="flex flex-row h-screen">
+        <div className="w-[70%] h-full p-4">
+          <div className="text-justify">
+            Wiser Up, trabalhando em soluções integradas para uma gestão empresarial mais eficiente, conectando todas as áreas do seu negócio em um só lugar.
+            Na Wiser Up, nossa missão é proporcionar às empresas as ferramentas mais eficazes e inovadoras para o gerenciamento de suas operações. Sabemos que cada detalhe importa, e é por isso que oferecemos um suporte técnico especializado para garantir que nossos clientes tenham a melhor experiência possível com nossos serviços.
+            Nosso time de suporte está sempre à disposição para auxiliar na resolução de problemas, responder a dúvidas e oferecer orientação personalizada. Seja uma questão simples ou um desafio mais complexo, estamos preparados para atuar com agilidade e eficiência, garantindo que sua empresa não perca tempo com interrupções ou dificuldades técnicas.Valorizamos o relacionamento com nossos clientes e entendemos que nosso sucesso está diretamente ligado ao seu. É por isso que a responsabilidade com o cliente é um dos pilares fundamentais da Wiser Up. Assumimos o compromisso de oferecer soluções que realmente façam a diferença, prezando pela transparência e pela confiança em cada interação.
+          </div>
+          <p className="title">Suporte</p>
+          <input type="text" placeholder="Informe o problema"/>
+          <button className="m-3">
+            Enviar
+          </button>
+        </div>
+        <div className="w-[30%] h-96 p-4 m-4 rounded-xl menu text-white">
+          Ola
+        </div>
       </div>
     </div>
   );

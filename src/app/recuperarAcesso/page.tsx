@@ -62,49 +62,15 @@ export default function RecuperarAcesso() {
   };
 
   return (
-    <div className="w-full h-full p-[1.98rem] flex flex-col justify-between gap-10">
-      <a href="./" className="text-2xl text-black">Wiser</a>
-      <div className="h-80 w-full flex flex-col justify-center text-center items-center gap-5">
-        <p className="text-2xl text-black">Recuperar Acesso</p>
-        <div className="text-start">
-          <p className="text-xl text-black">CNPJ</p>
-          <input 
-            type="text" 
-            value={cnpj} 
-            onChange={handleCnpjChange} 
-            className="border-black border-[1px] rounded-xl bg-white p-1 w-96 text-black" 
-            minLength={14} 
-            maxLength={14} 
-            placeholder="Insira o cnpj da empresa"
-          />
-        </div>
-        <div className="text-start">
-          <p className="text-xl text-black">Nova Senha</p>
-          <input 
-            type="password" 
-            value={novaSenha} 
-            onChange={handleNovaSenhaChange} 
-            className="border-black border-[1px] rounded-xl bg-white p-1 w-96 text-black" 
-            placeholder="Insira a nova senha"
-          />
-        </div>
-        <div className="text-start">
-          <p className="text-xl text-black">Confirmar Senha</p>
-          <input 
-            type="password" 
-            value={confirmarSenha} 
-            onChange={handleConfirmarSenhaChange} 
-            className="border-black border-[1px] rounded-xl bg-white p-1 w-96 text-black" 
-            placeholder="Repita a nova senha"
-          />
-        </div>
-      </div>
-      <div className="flex flex-row justify-center">
-        <button 
-          onClick={handleSubmit} 
-          className="bg-green-600 hover:bg-green-700 border-white border-[1px] rounded-xl w-40 h-10"
-        >
-          <p className="text-white">Recuperar</p>
+    <div className="w-screen p-3 h-screen flex flex-col justify-center">
+      <a href="./" className="text-2xl text-black">Wiser Up</a>
+      <div className="h-full w-full flex flex-col justify-center text-center items-center gap-5">
+        <p className="title">Recuperar Acesso</p>
+        <input type="text" value={cnpj} onChange={handleCnpjChange} minLength={14} maxLength={14} placeholder="Insira o cnpj da empresa"/>
+        <input type="password" value={novaSenha} onChange={handleNovaSenhaChange} placeholder="Insira a nova senha"/>
+        <input type="password" value={confirmarSenha} onChange={handleConfirmarSenhaChange} placeholder="Repita a nova senha"/>
+        <button onClick={handleSubmit}>
+          Recuperar
         </button>
       </div>
     </div>

@@ -24,8 +24,6 @@ export default function Home() {
         querySnapshot.forEach((doc) => {
           const empresaData = doc.data();
           if (empresaData.senha === senha) {
-            alert('Senha correta, redirecionando...');
-            
             // Salvando sessão no localStorage
             localStorage.setItem('isLoggedIn', 'true');
             
@@ -45,44 +43,23 @@ export default function Home() {
   };
 
   return (
-    <div className="w-full h-full p-[1.98rem] flex flex-col justify-between gap-10">
-      <p className="text-2xl text-black">Wiser</p>
-      <div className="h-96 w-full flex flex-col justify-center text-center items-center gap-9">
-        <p className="text-2xl text-black">Acessar</p>
-        <div className="text-start">
-          <p className="text-xl text-black">Empresa</p>
-          <input
-            value={empresa}
-            onChange={(e) => setEmpresa(e.target.value)}
-            type="text"
-            className="border-black border-[1px] rounded-xl bg-white p-1 w-96 text-black"
-            placeholder="Insira o nome da empresa"
-          />
+    <div className="w-screen p-3 h-screen flex flex-col justify-center">
+      <p className="text-2xl text-black">Wiser Up</p>
+      <div className="h-full w-full flex flex-col justify-center text-center items-center gap-5">
+        <p className="title">Acessar</p>
+        <input value={empresa} onChange={(e) => setEmpresa(e.target.value)} type="text" placeholder="Insira o nome da empresa"/>
+        <input value={senha} onChange={(e) => setSenha(e.target.value)} type="password" placeholder="Insira a senha"/>
+        <div className="w-full flex flex-row justify-center pt-1 gap-40">
+          <a className="text-black" href={"/criarConta"}>Criar Conta</a>
+          <a className="text-black" href={"/recuperarAcesso"}>Recuperar Acesso</a>
         </div>
-        <div className="text-start">
-          <p className="text-xl text-black">Senha</p>
-          <input
-            value={senha}
-            onChange={(e) => setSenha(e.target.value)}
-            type="password"
-            className="border-black border-[1px] rounded-xl bg-white p-1 w-96 text-black"
-            placeholder="Insira a senha"
-          />
-          <div className="w-full flex flex-row justify-center pt-1 gap-36">
-            <a className="text-black" href={"/criarConta"}>Criar Conta</a>
-            <a className="text-black" href={"/recuperarAcesso"}>Recuperar Acesso</a>
-          </div>
-        </div>
-        <button onClick={handleLogin} className="bg-green-600 hover:bg-green-700 border-white border-[1px] rounded-xl w-40 h-10">
-          <p className="text-white">Acessar</p>
+        <button onClick={handleLogin}>
+          Acessar
         </button>
       </div>
       <div className="flex flex-col justify-center text-center gap-4">
         <div>
-          <a href="" className="text-black">Enfrentando problemas? Envie um email</a>
-        </div>
-        <div>
-          <p className="text-black">O login só será permitido se o nome da empresa for digitado exatamente como cadastrado, incluindo acentos e outros caracteres especiais.</p>
+          <a href="/suporte" className="text-black">Problemas? relatar o problema</a>
         </div>
       </div>
     </div>

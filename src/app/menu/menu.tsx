@@ -3,7 +3,7 @@
 export default function menu(){
     return(
         <div>
-            <div className="w-full h-14 bg-blue-700 flex flex-row gap-4">
+            <div className="menu w-full h-14 flex flex-row gap-4">
                 <div className="p-4">
                     <a href="./" className="text-white">Sair</a>
                 </div>
