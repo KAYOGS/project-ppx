@@ -22,7 +22,7 @@ export default function menu(){
                     <a href="" className="text-white">BI</a>
                 </div>
                 <div className="p-4">
-                    <p className="text-white">v1.0.0</p>
+                    <p className="text-white">v1.0.1</p>
                 </div>
             </div>
         </div>

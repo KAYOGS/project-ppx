@@ -3,10 +3,42 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation'; // Import ajustado para a nova versão do Next.js
 import Menu from '../menu/menu';
+import { db } from '../firebaseConfig';
+import { collection, addDoc } from 'firebase/firestore';
+import { formatCNPJ } from '../mascaraInput';
 
 export default function SessaoInicial() {
   const router = useRouter();
   const [isClient, setIsClient] = useState(false);
+
+  const [cnpj, setCnpj] = useState('');
+  const [problema, setProblema] = useState('');
+
+  // Função para adicionar um novo report
+  const addReport = async () => {
+    if (!cnpj || !problema) {
+      alert('Preencha todos os campos corretamente.');
+      return;
+    }
+
+    try {
+      // Verificando se o cnpj e problema estão no formato correto
+      console.log('CNPJ:', cnpj);
+      console.log('Problema:', problema);
+
+      // Referência para a coleção 'Report' no Firestore
+      const docRef = await addDoc(collection(db, 'Problemas'), {
+        cnpj: cnpj,
+        problema: problema
+      });
+
+      console.log("Report adicionado com ID: ", docRef.id);
+      alert("Report enviado com sucesso!");
+    } catch (error) {
+      console.log('Erro ao adicionar report:', error); // Detalhamento do erro
+      alert("Erro ao enviar report. Tente novamente.");
+    }
+  }
 
   useEffect(() => {
     // Apenas habilita o código quando estiver no lado do cliente
@@ -29,6 +61,12 @@ export default function SessaoInicial() {
     return null;
   }
 
+  // Função para formatar o CNPJ
+  const handleCnpjChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const formattedCnpj = formatCNPJ(event.target.value); // Verifique se a máscara está funcionando corretamente
+    setCnpj(formattedCnpj);
+  };
+  
   return (
     <div className="flex flex-col justify-center w-screen h-screen">
       <Menu />
@@ -40,8 +78,9 @@ export default function SessaoInicial() {
             Nosso time de suporte está sempre à disposição para auxiliar na resolução de problemas, responder a dúvidas e oferecer orientação personalizada. Seja uma questão simples ou um desafio mais complexo, estamos preparados para atuar com agilidade e eficiência, garantindo que sua empresa não perca tempo com interrupções ou dificuldades técnicas.Valorizamos o relacionamento com nossos clientes e entendemos que nosso sucesso está diretamente ligado ao seu. É por isso que a responsabilidade com o cliente é um dos pilares fundamentais da Wiser Up. Assumimos o compromisso de oferecer soluções que realmente façam a diferença, prezando pela transparência e pela confiança em cada interação.
           </div>
           <p className="title">Suporte</p>
-          <input type="text" placeholder="Informe o problema"/>
-          <button className="m-3">
+          <input value={cnpj} onChange={handleCnpjChange} id="cnpj" type="text" placeholder="Informe o CNPJ" maxLength={18}/><br/>
+          <input value={problema} onChange={(e) => setProblema(e.target.value)} id="problema" type="text" placeholder="Informe o problema"/>
+          <button className="m-3" onClick={addReport}>
             Enviar
           </button>
         </div>

@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { db } from '../firebaseConfig';
 import { collection, addDoc } from 'firebase/firestore';
-import { formatCNPJ } from '../mascaraInput'; // Certifique-se de que esta função está funcionando corretamente
+import { formatCNPJ } from '../mascaraInput';
 
 export default function Suporte() {
   const [cnpj, setCnpj] = useState('');
@@ -33,6 +33,7 @@ export default function Suporte() {
     } catch (error) {
       console.log('Erro ao adicionar report:', error); // Detalhamento do erro
       alert("Erro ao enviar report. Tente novamente.");
+      window.location.href = '/';
     }
   };
 

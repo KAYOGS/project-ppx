@@ -42,9 +42,11 @@ export default function RecuperarAcesso() {
       // Atualiza o documento no Firestore
       await updateDoc(docRef, updatedData);
       alert('Senha atualizada com sucesso!');
+      window.location.href = '/';
     } catch (error) {
       console.error('Erro ao atualizar empresa:', error);
       alert('Erro ao atualizar a senha');
+      window.location.href = '/';
     }
   };
 
